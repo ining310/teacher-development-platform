@@ -5,6 +5,7 @@ import { auth } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import LabelText from "./_components/LabelText";
+import ChangePasswordDialog from "./_components/ChangePasswordDialog";
 export default async function AboutMe(){
   const session = await auth();
   const infoLabels = ["學校/單位","學校職務","科目/課程","聯盟角色"];
@@ -54,12 +55,7 @@ export default async function AboutMe(){
               <LabelText label={"手機號碼"} text={session?.user?.mobile ?? ""} />
             </div>
             <div className="flex gap-3">
-              <a 
-                className="justify-self-center w-fit px-3 py-1 text-white text-sm rounded-full hover:opacity-80"
-                style={{backgroundColor: INDIGO}}
-              >
-                變更密碼
-              </a>
+              <ChangePasswordDialog />
               <a 
                 className="justify-self-center w-fit px-3 py-1 text-white text-sm rounded-full hover:opacity-80"
                 style={{backgroundColor: INDIGO}}
